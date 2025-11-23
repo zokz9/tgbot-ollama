@@ -4,14 +4,17 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Telegram Bot
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
-
-# Ollama API
 OLLAMA_API_KEY = os.getenv("OLLAMA_API_KEY")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "https://ollama.com")
-OLLAMA_MAIN_MODEL = "kimi-k2:1t-cloud"
-OLLAMA_VISION_MODEL = "qwen3-vl:235b-instruct-cloud"
 
-# Внутренние настройки
-MAX_IMAGE_SIZE = 10 * 1024 * 1024  # 10MB
+# Разные модели для разных задач
+OLLAMA_MAIN_MODEL = "kimi-k2-thinking:cloud"           # Обычное общение
+OLLAMA_SEARCH_MODEL = "gpt-oss:120b-cloud"       # Поиск в интернете
+OLLAMA_VISION_MODEL = "qwen3-vl:235b-cloud"  # Анализ изображений
+
+MAX_IMAGE_SIZE = 10 * 1024 * 1024
+
+# Настройки контекста
+MAX_HISTORY_SIZE = 10
+MAX_SEARCH_CONTEXT = 5
